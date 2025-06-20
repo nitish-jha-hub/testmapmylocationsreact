@@ -8,16 +8,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Home() {
-  React.useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://artstoreindia.org/search-widget/search-widget.js?id=N8xba8rJ-BpOVJ0a_bEgE6lpWzGxNbCTy4g3unzfURM";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <>
       {/* Hero Section */}
@@ -54,13 +44,13 @@ function Home() {
               <div className="bg-light p-4 rounded text-center h-100 shadow-sm">
                 <div className="mb-3">
                   <i className="fas fa-search fa-3x text-primary"></i>
-      </div>
+                </div>
                 <h3 className="h5 mb-3">SEO Services</h3>
                 <p>
                   Comprehensive search engine optimization to improve your online
                   visibility and drive targeted traffic to your website.
-        </p>
-      </div>
+                </p>
+              </div>
             </div>
             <div className="col-12 col-md-4">
               <div className="bg-light p-4 rounded text-center h-100 shadow-sm">
@@ -100,6 +90,16 @@ function Home() {
 }
 
 function App() {
+  React.useEffect(() => {
+    if (!document.getElementById("vyqda-search-widget")) {
+      const script = document.createElement("script");
+      script.id = "vyqda-search-widget";
+      script.src = "https://artstoreindia.org/search-widget/search-widget.js?id=N8xba8rJ-BpOVJ0a_bEgE6lpWzGxNbCTy4g3unzfURM";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <>
       {/* Font Awesome CDN for all pages */}
