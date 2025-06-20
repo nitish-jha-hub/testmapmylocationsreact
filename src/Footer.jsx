@@ -43,6 +43,12 @@ export default function Footer() {
         </div>
         <div className="text-center text-secondary small">
           <p className="mb-0">&copy; 2025 Vyqda Technology. All Rights Reserved.</p>
+          <p className="mb-0">
+            Designed and developed by{' '}
+            <a href="https://nitishjha.vercel.app" target="_blank" rel="noopener noreferrer" className="text-info fw-bold text-decoration-none">
+              Vyqda
+            </a>
+          </p>
         </div>
       </div>
     </footer>
