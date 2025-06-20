@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import Services from "./Services";
 import Contact from "./Contact";
@@ -8,7 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Home() {
-  useEffect(() => {
+  React.useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://artstoreindia.org/search-widget/search-widget.js?id=N8xba8rJ-BpOVJ0a_bEgE6lpWzGxNbCTy4g3unzfURM";
     script.async = true;
@@ -20,11 +20,6 @@ function Home() {
 
   return (
     <>
-      {/* Font Awesome CDN */}
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      />
       {/* Hero Section */}
       <section className="bg-primary bg-gradient text-white text-center py-5">
         <div className="container-fluid">
@@ -106,16 +101,23 @@ function Home() {
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <>
+      {/* Font Awesome CDN for all pages */}
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
